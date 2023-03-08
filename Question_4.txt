@@ -1,0 +1,79 @@
+Questão 4: 
+    Dois veículos (um carro e um caminhão) saem respectivamente de cidades opostas pela mesma rodovia.
+    O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o caminhão
+    de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. 
+    Quando eles se cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?  
+
+IMPORTANTE:  
+
+    Considerar a distância de 100km entre a cidade de Ribeirão Preto <-> Franca.  
+    Considerar 2 pedágios como obstáculo e que o caminhão leva 5 minutos a mais para passar em cada um deles e o carro possui tag de pedágio (Sem Parar)  
+    Explique como chegou no resultado. 
+
+    Resposta: 
+
+        Óbvio que eles vão estar à mesma distância da cidade de Ribeirão Preto, 
+        pois eles vão estar no mesmo ponto entre as duas cidades,
+        mas podemos localizar essa distância exata.
+
+        Resolução:
+        Eu usei como base a função horária do MRU (Movimento Retilíneo uniforme):
+
+            S(t) = S0 + v * t;
+
+    Legenda:
+    S(t) é a distância final em função do tempo;
+    S0 é a distância inicial;
+    v é a velocidade do veículo;
+    t é o tempo;
+
+    Obs: Usei como referência a cidade de Ribeirão Preto;
+
+            Para o carro a função é:
+            S(t) = 0 + 110 * t
+            S(t) = 110t;
+
+        Porém a velocidade média do caminhão não
+        vai ser 80km/h, pois ele perde 10 minutos
+        nos dois pedágios, ou seja vamos primeiro
+        encontrar sua velocidade média efetiva:
+
+        Para percorrer os 80 km ele levaria quanto tempo?
+        Vamos descobrir o tempo que levaria para percorrer todo
+        o caminho usando a fórmula da velocidade média:
+
+            Vm(velocidade média) = Distância / tempo:
+            80 = 100 / t;
+            t = 1,25 horas;
+
+        Esse seria o tempo ignorando os pedágios, agora é somar com o tempo
+        que ele ficou parado (10 minutos é aproximadamente a 0,17 hora) e encontrar a velocidade.
+
+            Vm = 100 / (1,25 + 0,17);
+            Vm = 70,59 km/h
+
+        Portanto a velocidade média do caminhão é aproximadamente 
+        de 70,59 km/h;
+
+            Para o caminhão a função é:
+            S(t) = 100 - 70,59 * t;
+            S(t) = 100 - 70,59t;
+
+        Como sabemos que a distância de ambos para
+        Ribeirão Preto é a mesma vamos igualar as equações, assim
+        descobrindo o valor do tempo que vão levar para se encontrar:
+
+            110t = 100 - 70,59t;
+            110t + 70,59t = 100;
+            180,59t = 100;
+            t = 100/180,59;
+
+        Portanto, o tempo que levou para se encontrarem doi de aproximadamente 0,553 hora ou aproximadamente 33 minutos.
+
+        Por fim, podemos determinar a distância que estavam da cidade, apenas utilizando
+        uma das equações horárias que encontramos anteriormente, vamos usar a do carro:
+
+            S(t) = 110*t;
+            S(0,553) = 60,83km;
+
+        Portanto a distância da cidade de Ribeirão Preto é aproximadamente 60,83km;
